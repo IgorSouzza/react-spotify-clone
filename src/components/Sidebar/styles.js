@@ -8,13 +8,15 @@ export const Container = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: hidden;
 
   > div {
     padding: 20px;
     overflow-y: scroll;
     &::-webkit-scrollbar {
-      background: transparent;
+      background: #121212;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #282828;
     }
   }
 `;
