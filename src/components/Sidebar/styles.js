@@ -8,9 +8,14 @@ export const Container = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-y: hidden;
 
   > div {
     padding: 20px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      background: transparent;
+    }
   }
 `;
 
@@ -28,7 +33,7 @@ export const Nav = styled.nav`
       text-decoration: none;
       font-size: 13px;
       line-height: 32px;
-      font-weight: ${props => props.main ? 'bold' : 'normal'};
+      font-weight: ${props => (props.main ? 'bold' : 'normal')};
 
       &:hover {
         color: #FFF;
