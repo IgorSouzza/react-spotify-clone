@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'development') {
     .use(sagaPlugin())
     .connect();
 
-  tron.clear();
-
   console.tron = tron;
+
+  tron.clear();
 }
