@@ -34,11 +34,11 @@ class Browse extends Component {
     getPlaylistsRequest();
   }
 
-  render() {
+  renderBrowse = () => {
     const { playlists } = this.props;
     return (
       <Container>
-        <Title>Navegar {playlists.loading && <Loading />}</Title>
+        <Title>Navegar</Title>
 
         <List>
           {playlists.data.map(playlist => (
@@ -54,6 +54,15 @@ class Browse extends Component {
         </List>
       </Container>
     );
+  };
+
+  render() {
+    const { playlists } = this.props;
+    return playlists.loading ? (
+      <Container loading={1}>
+        <Loading />
+      </Container>
+    ) : this.renderBrowse();
   }
 }
 
