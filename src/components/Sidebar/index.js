@@ -53,7 +53,7 @@ class Sidebar extends Component {
               <a href="/">Seu Daily Mix</a>
             </li>
             <li>
-              <a href="/">Tocados recentemente</a>
+              <a href="/" className="line_breaked">Tocados recentemente</a>
             </li>
             <li>
               <a href="/">Músicas</a>

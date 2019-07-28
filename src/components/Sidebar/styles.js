@@ -46,6 +46,11 @@ export const Nav = styled.nav`
       }
     }
 
+    .line_breaked {
+      line-height: 18px;
+      margin: 5px 0;
+    }
+
     span {
       font-size: 11px;
       text-transform: uppercase;
