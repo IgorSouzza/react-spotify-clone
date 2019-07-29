@@ -29,16 +29,19 @@ const Player = ({ player }) => (
       <Sound url={player.currentSong.file} playStatus={player.status} />
     )}
     <Current>
-      <img
-        src="https://img2-placeit-net.s3-accelerate.amazonaws.com/uploads/stage/stage_image/21198/large_thumb_placeit__88_.jpg"
-        alt="Capa do album"
-      />
-      <div>
-        <span>Havana</span>
-        <small>Camila Cabello</small>
-      </div>
+      { !!player.currentSong && (
+        <>
+          <img
+            src={player.currentSong.thumbnail}
+            alt={`Capa do album ${player.currentSong.album}`}
+          />
+          <div>
+            <span>{player.currentSong.title}</span>
+            <small>{player.currentSong.author}</small>
+          </div>
+        </>
+      )}
     </Current>
-
     <Progress>
       <Controls>
         <button type="button">
@@ -87,6 +90,10 @@ Player.propTypes = {
   player: PropTypes.shape({
     currentSong: PropTypes.shape({
       file: PropTypes.string,
+      thumbnail: PropTypes.string,
+      title: PropTypes.string,
+      author: PropTypes.string,
+      album: PropTypes.string,
     }),
     status: PropTypes.string,
   }).isRequired,
