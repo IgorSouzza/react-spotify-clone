@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Sound from 'react-sound';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -38,8 +39,13 @@ class Playlist extends Component {
       loading: PropTypes.bool,
     }).isRequired,
     loadSong: PropTypes.func.isRequired,
-    currentSong: PropTypes.shape({
-      id: PropTypes.number,
+    playSong: PropTypes.func.isRequired,
+    pauseSong: PropTypes.func.isRequired,
+    player: PropTypes.shape({
+      currentSong: PropTypes.shape({
+        id: PropTypes.number,
+      }),
+      status: PropTypes.string,
     }).isRequired,
   }
 
@@ -67,7 +73,9 @@ class Playlist extends Component {
   }
 
   renderDetails = () => {
-    const { playlistDetails, loadSong, currentSong } = this.props;
+    const {
+      playlistDetails, loadSong, pauseSong, playSong, player,
+    } = this.props;
     const { data } = playlistDetails;
     const { selectedSong } = this.state;
     return (
@@ -81,9 +89,23 @@ class Playlist extends Component {
           <div>
             <span>PLAYLIST</span>
             <h1>{data.title}</h1>
-            { !!data.songs && <p>{data.songs.length} músicas</p>}
+            {!!data.songs && <p>{data.songs.length} músicas</p>}
+            {!!player.currentSong && player.status === Sound.status.PLAYING ? (
+              <button
+                type="button"
+                onClick={pauseSong}
+              >
+                PAUSE
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={playSong}
+              >
+                PLAY
+              </button>
+            ) }
 
-            <button type="button">PLAY</button>
           </div>
         </Header>
 
@@ -110,7 +132,7 @@ class Playlist extends Component {
                   onClick={() => this.setState({ selectedSong: song.id })}
                   onDoubleClick={() => loadSong(song)}
                   selected={selectedSong === song.id}
-                  playing={currentSong && currentSong.id === song.id}
+                  playing={player.currentSong && player.currentSong.id === song.id}
                 >
                   <td><img src={PlusIcon} alt="Adicionar" /></td>
                   <td>{song.title}</td>
@@ -138,7 +160,7 @@ class Playlist extends Component {
 
 const mapStateToProps = state => ({
   playlistDetails: state.playlistDetails,
-  currentSong: state.player.currentSong,
+  player: state.player,
 });
 
 const dispatchStateToProps = dispatch => bindActionCreators(
