@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Player from './components/Player';
 import ErrorBox from './components/ErrorBox';
+import CreatePlaylist from './components/CreatePlaylist';
 
 import Routes from './routes';
 import store from './store';
@@ -19,7 +20,6 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Wrapper>
-          <GlobalStyle />
           <Container>
             <Sidebar />
             <Content>
@@ -29,7 +29,9 @@ function App() {
             </Content>
           </Container>
           <Player />
+          <CreatePlaylist />
         </Wrapper>
+        <GlobalStyle />
       </BrowserRouter>
     </Provider>
   );

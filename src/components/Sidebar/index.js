@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Creators as PlaylistsAction } from '../../store/ducks/playlists';
+import { Creators as PlaylistsActions } from '../../store/ducks/playlists';
+import { Creators as ModalActions } from '../../store/ducks/modal';
 
 import Loading from '../Loading/index';
 
@@ -32,7 +33,7 @@ class Sidebar extends Component {
   }
 
   render() {
-    const { playlists } = this.props;
+    const { playlists, openModal } = this.props;
     return (
       <Container>
         <div>
@@ -91,7 +92,7 @@ class Sidebar extends Component {
 
           </Nav>
         </div>
-        <NewPlaylist>
+        <NewPlaylist onClick={openModal}>
           <img src={addPlaylistIcon} alt="Adicionar playlist" />
           Nova playlist
         </NewPlaylist>
@@ -104,6 +105,8 @@ const mapStateToProps = state => ({
   playlists: state.playlists,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(PlaylistsAction, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  ...PlaylistsActions, ...ModalActions,
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
