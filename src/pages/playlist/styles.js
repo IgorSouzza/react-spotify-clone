@@ -86,6 +86,7 @@ export const SongList = styled.table`
     font-size: 13px;
     padding: 0 10px;
     line-height: 40px;
+    text-align: left;
 
     &:first-child {
       width: 80px;

@@ -84,8 +84,8 @@ class Sidebar extends Component {
               {playlists.loading && <Loading />}
             </li>
             {playlists.data.map(playlist => (
-              <li key={playlist.id}>
-                <Link to={`/playlists/${playlist.id}`}>{playlist.title}</Link>
+              <li key={playlist._id}>
+                <Link to={`/playlists/${playlist._id}`}>{playlist.title}</Link>
               </li>
             ))}
 

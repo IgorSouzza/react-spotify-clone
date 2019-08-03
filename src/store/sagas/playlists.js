@@ -7,7 +7,7 @@ import { Creators as errorActions } from '../ducks/error';
 export function* getPlaylists() {
   try {
     const response = yield call(api.get, '/playlists');
-    console.log(response);
+
     yield put(PlaylistsActions.getPlaylistsSuccess(response.data));
   } catch (err) {
     yield put(errorActions.setError('Não foi possível obter as playlists'));

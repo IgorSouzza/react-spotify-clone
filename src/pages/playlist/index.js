@@ -128,14 +128,14 @@ class Playlist extends Component {
             ) : (
               data.songs.map(song => (
                 <SongItem
-                  key={song.id}
-                  onClick={() => this.setState({ selectedSong: song.id })}
+                  key={song._id}
+                  onClick={() => this.setState({ selectedSong: song._id })}
                   onDoubleClick={() => loadSong(song, data.songs)}
-                  selected={selectedSong === song.id}
-                  playing={player.currentSong && player.currentSong.id === song.id}
+                  selected={selectedSong === song._id}
+                  playing={player.currentSong && player.currentSong._id === song._id}
                 >
                   <td><img src={PlusIcon} alt="Adicionar" /></td>
-                  <td>{song.title}</td>
+                  <td>{song.name}</td>
                   <td>{song.author}</td>
                   <td>{song.album}</td>
                   <td>4:13</td>
