@@ -30,6 +30,7 @@
       {
         "allowParens": true
       }
-    ]
+    ],
+    "no-underscore-dangle": 0,
   }
 }
