@@ -16,7 +16,7 @@ export const Container = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 560px;
   margin: 0 auto;
   background: #282828;
   padding: 0 20px;
