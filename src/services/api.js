@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://music-api-005.herokuapp.com/v1/',
 });
 
 export default api;

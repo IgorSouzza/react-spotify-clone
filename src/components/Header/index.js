@@ -9,8 +9,8 @@ const Header = () => (
     </Search>
 
     <User>
-      <img src="https://avatars1.githubusercontent.com/u/18724586?v=4" alt="Avatar" />
-      Igor Souza
+      <img src={`https://api.adorable.io/avatars/285/${Math.random()}.png`} alt="Avatar" />
+      Visitor
     </User>
   </Container>
 );
