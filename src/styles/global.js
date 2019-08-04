@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
   }
 `;
 

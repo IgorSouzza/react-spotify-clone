@@ -1,16 +1,17 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import './config/reactotron';
 import GlobalStyle from './styles/global';
-import { Wrapper, Container, Content } from './styles/components';
+import { Wrapper } from './styles/components';
 
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import Player from './components/Player';
-import ErrorBox from './components/ErrorBox';
-import CreatePlaylist from './components/CreatePlaylist';
+import HomeLayout from './layouts/HomeLayout';
+import LoginLayout from './layouts/LoginLayout';
+
+import Browse from './pages/browse';
+import Playlist from './pages/playlist';
+import Login from './pages/login';
 
 import Routes from './routes';
 import store from './store';
@@ -20,16 +21,11 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Wrapper>
-          <Container>
-            <Sidebar />
-            <Content>
-              <ErrorBox />
-              <Header />
-              <Routes />
-            </Content>
-          </Container>
-          <Player />
-          <CreatePlaylist />
+          <Switch>
+            <Routes exact path="/" layout={HomeLayout} component={Browse} />
+            <Routes path="/playlists/:id" layout={HomeLayout} component={Playlist} />
+            <Routes path="/login" layout={LoginLayout} component={Login} />
+          </Switch>
         </Wrapper>
         <GlobalStyle />
       </BrowserRouter>

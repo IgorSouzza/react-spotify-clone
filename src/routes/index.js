@@ -1,15 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-import Browse from '../pages/browse';
-import Playlist from '../pages/playlist';
-
-const Routes = () => (
-  <Switch>
-    <Route exact path="/" component={Browse} />
-    <Route path="/playlists/:id" component={Playlist} />
-  </Switch>
+const Routes = ({ component: Component, layout: Layout, ...rest }) => (
+  <Route
+    {...rest}
+    render={props => (
+      <Layout>
+        <Component {...props} />
+      </Layout>
+    )}
+  />
 );
+
+Routes.propTypes = {
+  component: PropTypes.elementType.isRequired,
+  layout: PropTypes.elementType.isRequired,
+};
 
 export default Routes;
