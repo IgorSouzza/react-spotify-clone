@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import CloseIcon from '../../assets/images/close.svg';
 
+
 export const Overlay = styled.div`
   position: fixed;
   background: rgba(0, 0, 0, 0.8);;
@@ -42,6 +43,45 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
   }
+
+  .form_create {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      color: #B3B3B3;
+      &:nth-child(n+2) {
+        margin-top: 10px;
+      }
+    }
+
+    span {
+      color: #F55A5A;
+      font-size: 12px;
+    }
+
+    input, textarea {
+      border: none;
+      border-radius: 2px;
+      margin: 10px 0 0 0;
+      padding: 8px 10px;
+    }
+
+    textarea {
+      height: 42px;
+      resize: none;
+    }
+
+    button {
+      background: #1DB954;
+      border: none;
+      border-radius: 25px;
+      color: #FFF;
+      margin: 10px 0 20px 20px;
+      width: 120px;
+      padding: 8px 0;
+    }
+  }
 `;
 
 export const Image = styled.div`
@@ -50,37 +90,4 @@ export const Image = styled.div`
   background: #404040;
   margin-right: 20px;
   height: 210px;
-`;
-
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-
-  label {
-    color: #B3B3B3;
-    display: flex;
-    flex-direction: column;
-  }
-
-  input, textarea {
-    border: none;
-    border-radius: 2px;
-    margin: 10px 0;
-    padding: 8px 10px;
-  }
-
-  textarea {
-    height: 42px;
-    resize: none;
-  }
-
-  button {
-    background: #1DB954;
-    border: none;
-    border-radius: 25px;
-    color: #FFF;
-    margin: 10px 0 20px 20px;
-    width: 120px;
-    padding: 8px 0;
-  }
 `;

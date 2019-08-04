@@ -1,6 +1,8 @@
 export const Types = {
   OPEN: 'modal/OPEN',
   CLOSE: 'modal/CLOSE',
+  GET_REQUEST: 'modal/GET_REQUEST',
+  GET_SUCCESS: 'modal/GET_SUCCESS',
 };
 
 const INITIAL_STATE = {
@@ -13,6 +15,10 @@ export default function modal(state = INITIAL_STATE, action) {
       return { ...state, opened: true };
     case Types.CLOSE:
       return { ...state, opened: false };
+    case Types.GET_REQUEST:
+      return { ...state, opened: true };
+    case Types.GET_SUCCESS:
+      return { ...state, opened: false };
     default:
       return state;
   }
@@ -21,4 +27,9 @@ export default function modal(state = INITIAL_STATE, action) {
 export const Creators = {
   openModal: () => ({ type: Types.OPEN }),
   closeModal: () => ({ type: Types.CLOSE }),
+  postModalDataRequest: data => ({
+    type: Types.GET_REQUEST,
+    payload: { data },
+  }),
+  postModalDataSuccess: () => ({ type: Types.GET_SUCCESS }),
 };

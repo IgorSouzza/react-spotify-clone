@@ -23,6 +23,7 @@ class Sidebar extends Component {
       })),
       loading: PropTypes.bool,
     }).isRequired,
+    openModal: PropTypes.func.isRequired,
   };
 
   state = {};
@@ -86,7 +87,7 @@ class Sidebar extends Component {
             </li>
             {playlists.data.map(playlist => (
               <li key={playlist._id}>
-                <Link to={`/playlists/${playlist._id}`}>{playlist.name}</Link>
+                <Link to={`/playlists/${playlist._id}`}>{playlist.title}</Link>
               </li>
             ))}
 

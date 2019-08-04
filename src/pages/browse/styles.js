@@ -27,17 +27,22 @@ export const Title = styled.h1`
 `;
 
 export const List = styled.div`
-  margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  &>* {
+    flex: 1 1 160px;
+    margin-right: 20px;
+  }
 `;
 
 export const Playlist = styled(Link)`
   display: flex;
   flex-direction: column;
   color: #FFF;
-  margin-left: 20px;
-  width: 250px;
+  max-width: 250px;
   text-decoration: none;
+  margin-top: 20px;
 
   img {
     height: 250px;
@@ -58,9 +63,5 @@ export const Playlist = styled(Link)`
 
   &:hover img {
     opacity: 0.4;
-  }
-
-  &:first-child {
-    margin: 0;
   }
 `;

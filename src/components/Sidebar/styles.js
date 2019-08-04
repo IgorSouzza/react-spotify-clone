@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Spinner } from '../Loading/styles';
 
 export const Container = styled.aside`
-  height: 100%;
+  height: 87vh;
   width: 200px;
   background: #121212;
   color: #b3b3b3;

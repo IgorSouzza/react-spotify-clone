@@ -25,7 +25,9 @@ import PauseIcon from '../../assets/images/pause.svg';
 import ForwardIcon from '../../assets/images/forward.svg';
 import RepeatIcon from '../../assets/images/repeat.svg';
 
-const Player = ({ player, pauseSong, playSong, nextSong, prevSong }) => (
+const Player = ({
+  player, pauseSong, playSong, nextSong, prevSong,
+}) => (
   <Container>
     { !!player.currentSong && <Sound url={player.currentSong.file} playStatus={player.status} />}
     <Current>
@@ -36,7 +38,7 @@ const Player = ({ player, pauseSong, playSong, nextSong, prevSong }) => (
             alt={`Capa do album ${player.currentSong.album}`}
           />
           <div>
-            <span>{player.currentSong.title}</span>
+            <span>{player.currentSong.name}</span>
             <small>{player.currentSong.author}</small>
           </div>
         </>
@@ -98,7 +100,7 @@ Player.propTypes = {
     currentSong: PropTypes.shape({
       file: PropTypes.string,
       thumbnail: PropTypes.string,
-      title: PropTypes.string,
+      name: PropTypes.string,
       author: PropTypes.string,
       album: PropTypes.string,
     }),

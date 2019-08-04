@@ -9,12 +9,14 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   flex: 1;
   display: flex;
+  height: 88vh;
 `;
 
 export const Content = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 87vh;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     background: #121212;
