@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import CloseIcon from '../../assets/images/close.svg';
 
+import { Spinner } from '../Loading/styles';
 
 export const Overlay = styled.div`
   position: fixed;
@@ -81,13 +82,22 @@ export const Container = styled.div`
       width: 120px;
       padding: 8px 0;
     }
+
+    ${Spinner} {
+      height: 31px;
+      margin: 13px 0;
+    }
   }
 `;
 
 export const Image = styled.div`
   display: flex;
-  padding: 0px 90px;
   background: #404040;
   margin-right: 20px;
   height: 210px;
+  width: 212px;
+  img {
+    margin: 0 auto;
+    max-width: 212px;
+  }
 `;

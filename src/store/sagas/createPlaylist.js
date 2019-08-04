@@ -20,5 +20,6 @@ export function* createPlaylist(data) {
     yield put(PlaylistsActions.getPlaylistsSuccess(responseGet.data));
   } catch (err) {
     yield put(ErrorActions.setError('Não foi possível cadastrar a playlist'));
+    yield put(ModalActions.closeModal());
   }
 }
