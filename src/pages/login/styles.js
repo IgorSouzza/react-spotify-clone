@@ -10,16 +10,19 @@ export const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
+
     input {
       background: #404040;
       border: none;
       color: #c4ccce;
       margin: 10px 0;
       padding: 10px;
+
       &::placeholder {
         color: #c4ccce;
       }
     }
+
     button {
       background: #1DB954;
       border: none;
@@ -29,6 +32,7 @@ export const Container = styled.div`
       padding: 10px 0;
       margin: 20px auto;
     }
+
     ${Spinner} {
       margin: 20px auto;
       width: 25px;
@@ -69,6 +73,7 @@ export const Facebook = styled.div`
       background: #454545;
       position: absolute;
       top: 45%;
+
       &:last-child {
         right: 0;
       }

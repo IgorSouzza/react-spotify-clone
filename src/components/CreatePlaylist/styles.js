@@ -28,11 +28,13 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin: 20px 0;
+
     h1 {
       width: 100%;
       text-align: center;
       font-size: 20px;
     }
+
     button {
       width: 20px;
       background: transparent url(${CloseIcon}) no-repeat center;
@@ -51,6 +53,7 @@ export const Container = styled.div`
 
     p {
       color: #B3B3B3;
+
       &:nth-child(n+2) {
         margin-top: 10px;
       }
@@ -96,6 +99,7 @@ export const Image = styled.div`
   margin-right: 20px;
   height: 210px;
   width: 212px;
+
   img {
     margin: 0 auto;
     max-width: 212px;

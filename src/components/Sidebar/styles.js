@@ -14,9 +14,11 @@ export const Container = styled.aside`
   > div {
     padding: 20px;
     overflow-y: scroll;
+
     &::-webkit-scrollbar {
       background: #121212;
     }
+
     &::-webkit-scrollbar-thumb {
       background: #282828;
     }
@@ -34,6 +36,7 @@ export const Nav = styled.nav`
   li {
     display: flex;
     align-items: center;
+
     a {
       color: inherit;
       text-decoration: none;

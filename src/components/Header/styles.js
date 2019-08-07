@@ -39,4 +39,12 @@ export const User = styled.div`
     border-radius: 50%;
     margin-right: 5px;
   }
+
+  button {
+    color: #FFF;
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    margin-left: 7px;
+  }
 `;
