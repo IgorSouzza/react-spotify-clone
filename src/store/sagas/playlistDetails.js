@@ -6,7 +6,9 @@ import { Creators as errorActions } from '../ducks/error';
 
 export function* getPlaylistDetails(action) {
   try {
-    const response = yield call(api.get, `/playlists/${action.payload.id}?_embed=songs`);
+    const response = yield call(api.get, `/playlists/${action.payload.id}`, {
+      headers: { authorization: `Bearer ${window.localStorage.getItem('token')}` },
+    });
 
     yield put(PlaylistDetailActions.getPlaylistDetailsSuccess(response.data));
   } catch (err) {

@@ -12,6 +12,13 @@ export function* createPlaylist(data) {
       title: payload.data.title,
       description: payload.data.description,
       thumbnail: payload.data.album,
+    },
+    {
+      headers:
+        {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${window.localStorage.getItem('token')}`,
+        },
     });
 
     const responseGet = yield call(api.get, '/playlists');

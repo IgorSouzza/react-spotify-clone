@@ -31,7 +31,7 @@ class Browse extends Component {
 
   componentDidMount() {
     const { getPlaylistsRequest } = this.props;
-    // getPlaylistsRequest();
+    getPlaylistsRequest();
   }
 
   renderBrowse = () => {
