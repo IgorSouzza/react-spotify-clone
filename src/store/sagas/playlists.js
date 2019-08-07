@@ -6,10 +6,15 @@ import { Creators as errorActions } from '../ducks/error';
 
 export function* getPlaylists() {
   try {
-    const response = yield call(api.get, '/playlists');
-
+    const response = yield call(api.get, '/playlists', {
+      headers: { authorization: `Bearer ${window.localStorage.getItem('token')}` },
+    });
     yield put(PlaylistsActions.getPlaylistsSuccess(response.data));
   } catch (err) {
-    yield put(errorActions.setError('Não foi possível obter as playlists'));
+    if (err.response.status === 401) {
+      window.location = '/login';
+    } else {
+      yield put(errorActions.setError('Não foi possível obter as playlists'));
+    }
   }
 }

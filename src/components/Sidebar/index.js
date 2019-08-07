@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as PlaylistsActions } from '../../store/ducks/playlists';
-import { Creators as ModalActions } from '../../store/ducks/modal';
+import { Creators as CreatePlaylistActions } from '../../store/ducks/createPlaylist';
 
 import Loading from '../Loading/index';
 
@@ -107,7 +107,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  ...PlaylistsActions, ...ModalActions,
+  ...PlaylistsActions, ...CreatePlaylistActions,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

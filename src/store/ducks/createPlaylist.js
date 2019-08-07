@@ -1,8 +1,8 @@
 export const Types = {
-  OPEN: 'modal/OPEN',
-  CLOSE: 'modal/CLOSE',
-  GET_REQUEST: 'modal/GET_REQUEST',
-  GET_SUCCESS: 'modal/GET_SUCCESS',
+  OPEN: 'createPlaylist/OPEN',
+  CLOSE: 'createPlaylist/CLOSE',
+  GET_REQUEST: 'createPlaylist/GET_REQUEST',
+  GET_SUCCESS: 'createPlaylist/GET_SUCCESS',
 };
 
 const INITIAL_STATE = {
@@ -10,7 +10,7 @@ const INITIAL_STATE = {
   loading: false,
 };
 
-export default function modal(state = INITIAL_STATE, action) {
+export default function createPlaylist(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.OPEN:
       return { ...state, opened: true, loading: false };

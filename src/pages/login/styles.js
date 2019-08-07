@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Spinner } from '../../components/Loading/styles';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,6 +28,10 @@ export const Container = styled.div`
       width: 100px;
       padding: 10px 0;
       margin: 20px auto;
+    }
+    ${Spinner} {
+      margin: 20px auto;
+      width: 25px;
     }
   }
 `;

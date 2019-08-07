@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Creators as ModalActions } from '../../store/ducks/modal';
+import { Creators as CreatePlaylistActions } from '../../store/ducks/createPlaylist';
 
 import image from '../../services/image';
 
@@ -25,7 +25,7 @@ class CreatePlaylist extends Component {
 
   static propTypes = {
     postModalDataRequest: PropTypes.func.isRequired,
-    modal: PropTypes.shape({
+    createPlaylist: PropTypes.shape({
       opened: PropTypes.bool,
       loading: PropTypes.bool,
     }).isRequired,
@@ -50,7 +50,7 @@ class CreatePlaylist extends Component {
   };
 
   render() {
-    const { modal: { opened, loading }, closeModal } = this.props;
+    const { createPlaylist: { opened, loading }, closeModal } = this.props;
     const { imageRequest, imageUrl } = this.state;
     const schema = Yup.object().shape({
       title: Yup.string()
@@ -95,9 +95,9 @@ class CreatePlaylist extends Component {
 }
 
 const mapStateToProps = state => ({
-  modal: state.modal,
+  createPlaylist: state.createPlaylist,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(ModalActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(CreatePlaylistActions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePlaylist);

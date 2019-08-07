@@ -4,12 +4,14 @@ import playlists from './playlists';
 import playlistDetails from './playlistDetails';
 import error from './error';
 import player from './player';
-import modal from './modal';
+import createPlaylist from './createPlaylist';
+import login from './login';
 
 export default combineReducers({
   playlists,
   playlistDetails,
   error,
   player,
-  modal,
+  createPlaylist,
+  login,
 });
