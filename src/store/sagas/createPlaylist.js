@@ -8,20 +8,22 @@ import { Creators as ErrorActions } from '../ducks/error';
 export function* createPlaylist(data) {
   try {
     const { payload } = data;
+    const headerParams = {
+      headers:
+      {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${window.localStorage.getItem('token')}`,
+      },
+    };
+
     const response = yield call(api.post, '/playlists', {
       title: payload.data.title,
       description: payload.data.description,
       thumbnail: payload.data.album,
     },
-    {
-      headers:
-        {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${window.localStorage.getItem('token')}`,
-        },
-    });
+    headerParams);
 
-    const responseGet = yield call(api.get, '/playlists');
+    const responseGet = yield call(api.get, '/playlists', headerParams);
 
     yield put(CreatePlaylistActions.postModalDataSuccess(response.data));
     yield put(PlaylistsActions.getPlaylistsSuccess(responseGet.data));
