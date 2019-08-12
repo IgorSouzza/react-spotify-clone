@@ -30,6 +30,8 @@ export const List = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-bottom: 30px;
+
   &>* {
     flex: 1 1 160px;
     margin-right: 20px;

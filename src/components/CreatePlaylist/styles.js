@@ -50,6 +50,7 @@ export const Container = styled.div`
   .form_create {
     display: flex;
     flex-direction: column;
+    width: 50%;
 
     p {
       color: #B3B3B3;
