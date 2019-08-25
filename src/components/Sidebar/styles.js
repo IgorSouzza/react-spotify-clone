@@ -66,6 +66,11 @@ export const Nav = styled.nav`
       height: 15px;
       margin-left: 5px;
     }
+
+    .playlist {
+      line-height: 18px;
+      margin: 7px 0;
+    }
   }
 `;
 

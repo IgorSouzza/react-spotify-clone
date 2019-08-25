@@ -87,7 +87,7 @@ class Sidebar extends Component {
             </li>
             {playlists.data.map(playlist => (
               <li key={playlist._id}>
-                <Link to={`/playlists/${playlist._id}`}>{playlist.title}</Link>
+                <Link to={`/playlists/${playlist._id}`} className="playlist">{playlist.title}</Link>
               </li>
             ))}
 
