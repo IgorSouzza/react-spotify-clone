@@ -20,9 +20,7 @@ export function* login(data) {
     const errorMessage = err.response.data.message;
     const errorStatus = err.response.status;
     if (errorStatus === 401) yield put(ErrorActions.setError(errorMessage));
-    else {
-      yield put(ErrorActions.setError('Não foi possível logar'));
-      yield put(LoginActions.loginSuccess(null));
-    }
+    else yield put(ErrorActions.setError('Não foi possível logar'));
+    yield put(LoginActions.loginSuccess(null));
   }
 }

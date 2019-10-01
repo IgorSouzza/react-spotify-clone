@@ -12,7 +12,7 @@ export default function login(state = INITIAL_STATE, action) {
     case Types.GET_REQUEST:
       return { ...state, loading: true };
     case Types.GET_SUCCESS:
-      return { ...state, loading: true };
+      return { ...state, loading: false };
     default:
       return state;
   }
