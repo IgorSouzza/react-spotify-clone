@@ -48,6 +48,15 @@ export const Logo = styled.div`
   }
 `;
 
+export const ToolTip = styled.span`
+  text-align: center;
+  font-size: 12px;
+`;
+
+export const ToolTipLink = styled.a`
+  color: #1DB954;
+`;
+
 export const Facebook = styled.div`
   display: flex;
   flex-direction: column;

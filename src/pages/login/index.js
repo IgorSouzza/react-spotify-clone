@@ -7,14 +7,24 @@ import { Creators as LoginActions } from '../../store/ducks/login';
 
 import Loading from '../../components/Loading';
 
-import { Container, Logo, Facebook } from './styles';
+import { Container, Logo, Facebook, ToolTip, ToolTipLink } from './styles';
 
 import LogoIcon from '../../assets/images/logo.png';
 
-const Login = ({ login: { loading }, loginRequest }) => {
-  const handleSubmit = (data) => {
+let loginView = true;
+
+const Login = ({ login: { loading }, loginRequest, registerRequest }) => {
+  const handleLoginSubmit = (data) => {
     loginRequest(data);
   };
+
+  const handleRegisterSubmit = (data) => {
+    registerRequest(data);
+  };
+
+  const switchView = (view) => {
+    loginView = view;
+  }
 
   return (
     <Container>
@@ -25,11 +35,21 @@ const Login = ({ login: { loading }, loginRequest }) => {
         <button type="button">LOG IN COM O FACEBOOK</button>
         <span><div /> OU <div /></span>
       </Facebook>
-      <Form onSubmit={handleSubmit}>
-        <Input type="text" name="user" placeholder="Email ou usuário" />
-        <Input type="password" name="password" placeholder="Senha" />
-        {loading ? (<Loading />) : (<button type="submit">LOG IN</button>)}
-      </Form>
+      {loginView ?
+        <Form onSubmit={handleLoginSubmit}>
+          <Input type="email" name="email" placeholder="Email" required />
+          <Input type="password" name="password" placeholder="Senha" required />
+          {loading ? (<Loading />) : (<button type="submit">LOG IN</button>)}
+          <ToolTip>Não possui uma conta? <ToolTipLink href="#" onClick={() => switchView(false)}>Cadastre-se</ToolTipLink></ToolTip>
+        </Form>
+        :
+        <Form onSubmit={handleRegisterSubmit}>
+          <Input type="text" name="username" placeholder="Usuário" required />
+          <Input type="email" name="email" placeholder="Email" required />
+          <Input type="password" name="password" placeholder="Senha" required />
+          {loading ? (<Loading />) : (<button type="submit">REGISTRAR</button>)}
+          <ToolTip>Já possui uma conta? <ToolTipLink href="#" onClick={() => switchView(true)}>Faça login</ToolTipLink></ToolTip>
+        </Form>}
     </Container>
   );
 };
