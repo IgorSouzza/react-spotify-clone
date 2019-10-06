@@ -14,7 +14,6 @@ import LogoIcon from '../../assets/images/logo.png';
 const Login = ({ login: { loading }, loginRequest }) => {
   const handleSubmit = (data) => {
     loginRequest(data);
-    console.log(loading);
   };
 
   return (
