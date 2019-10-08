@@ -8,7 +8,7 @@ export function* login(data) {
   try {
     const { payload } = data;
     const response = yield call(api.post, '/login', {
-      email: payload.data.user,
+      email: payload.data.email,
       password: payload.data.password,
     });
     if (response.status === 200) {
@@ -22,5 +22,27 @@ export function* login(data) {
     if (errorStatus === 401) yield put(ErrorActions.setError(errorMessage));
     else yield put(ErrorActions.setError('Não foi possível logar'));
     yield put(LoginActions.loginSuccess(null));
+  }
+}
+
+export function* register(data) {
+  try {
+    const { payload } = data;
+    const response = yield call(api.post, '/register', {
+      name: payload.data.username,
+      email: payload.data.email,
+      password: payload.data.password,
+    });
+    if (response.status === 200) {
+      window.localStorage.setItem('token', response.data.token);
+      yield put(LoginActions.registerSuccess(response.data));
+      window.location = '/';
+    }
+  } catch (err) {
+    const errorMessage = err.response.data.message;
+    const errorStatus = err.response.status;
+    if (errorStatus === 401) yield put(ErrorActions.setError(errorMessage));
+    else yield put(ErrorActions.setError('Não foi possível cadastrar'));
+    yield put(LoginActions.registerSuccess(null));
   }
 }
