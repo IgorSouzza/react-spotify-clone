@@ -4,7 +4,8 @@ import { Container, Search, User } from './styles';
 
 const Header = () => {
   const logout = () => {
-    window.localStorage.setItem('token', null);
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('username');
     window.location = '/login';
   };
 
@@ -16,7 +17,7 @@ const Header = () => {
 
       <User>
         <img src={`https://api.adorable.io/avatars/285/${Math.random()}.png`} alt="Avatar" />
-        Visitor,
+        {window.localStorage.getItem('username')},
         <button type="button" onClick={logout}>Sair</button>
       </User>
     </Container>
