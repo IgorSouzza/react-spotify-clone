@@ -13,6 +13,7 @@ export function* login(data) {
     });
     if (response.status === 200) {
       window.localStorage.setItem('token', response.data.token);
+      window.localStorage.setItem('username', response.data.user.name);
       yield put(LoginActions.loginSuccess(response.data));
       window.location = '/';
     }
@@ -35,6 +36,7 @@ export function* register(data) {
     });
     if (response.status === 200) {
       window.localStorage.setItem('token', response.data.token);
+      window.localStorage.setItem('username', response.data.user.name);
       yield put(LoginActions.registerSuccess(response.data));
       window.location = '/';
     }
